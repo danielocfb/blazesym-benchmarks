@@ -1,0 +1,23 @@
+[package]
+name = "blazesym-benchmarks"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.bench]
+opt-level = 3
+lto = false
+codegen-units = 1
+incremental = false
+
+[build-dependencies]
+xz2 = "0.1.7"
+
+[dev-dependencies]
+blazesym = {git = "https://github.com/libbpf/blazesym", branch = "master"}
+criterion = "0.4"
+
+[[bench]]
+name = "benchmark"
+harness = false
